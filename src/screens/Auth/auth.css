@@ -7,6 +7,10 @@
     object-fit: cover;
 }
 
+input:focus {
+  outline: none;
+ }
+
 .loader {
     border: 1px solid white;
     width: 16px;

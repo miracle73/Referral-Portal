@@ -92,7 +92,8 @@ const UserPersonalDetails = () => {
                     <div className='lg:hidden' onClick={() => setNavbar(!navbar)}>
                         <img src={Navbar} />
                     </div>
-                    <p className='text-[26px] max-lg:text-xl max-md:text-lg max-sm:text-base  font-[600] text-[#000000] font-[Poppins] mx-10 max-lg:mx-8 max-md:mx-5 my-5'>Viewing Lead Ambassador</p>
+                 
+                   
                 </div>
                 <div className='flex justify-start items-center gap-4 mx-10  max-lg:mx-8 max-md:mx-5 my-5 max-lg:my-4'>
                     <div className='w-17 h-17 rounded-full'>

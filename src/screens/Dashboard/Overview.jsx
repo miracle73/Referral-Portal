@@ -18,7 +18,7 @@ const Overview = () => {
   const [navbar, setNavbar] = useState(false)
   const sidebarRef = useRef(null);
   const formRef = useRef(null);
-  const { token } = useContext(AuthContext);
+  const { token, user } = useContext(AuthContext);
   const [userdetail, setUserdetail] = useState(null);
   const [error, setError] = useState(null)
   const [userthirddetail, setThirdUserdetail] = useState(null);
@@ -100,12 +100,12 @@ const Overview = () => {
         <>
           <div className=' flex justify-between items-center px-10 w-full'>
             <div className='flex w-[30%] justify-center px-2 py-4 items-center border rounded-md gap-8'>
-              <div className=' rounded-full bg-[#B9FFC2] flex justify-center items-center'>
+              <div className='p-4 max-lg:p-3 max-md:p-2 max-sm:p-1 rounded-full bg-[#B9FFC2] flex justify-center items-center'>
                 <img src={AmbassadorsIcon} />
               </div>
               <div className=' flex flex-col justify-around'>
                 <p className='text-[17px] max-lg:text-sm max-md:text-xs max-sm:text-[10px] font-[500] text-[#667185] font-[Inter]'> Total of Ambassadors </p>
-                <p className='text-[24px] max-lg:text-lg max-md:text-base max-sm:text-sm font-[700] text-[#000000] font-[Inter]'> {userthirddetail?.sub?.length + userseconddetail?.all?.length}</p>
+                <p className='text-[24px] max-lg:text-lg max-md:text-base max-sm:text-sm font-[700] text-[#000000] font-[Inter]'> {userthirddetail?.sub?.length + userseconddetail?.all?.length || 0}</p>
               </div>
             </div>
             <div className='flex w-[30%] justify-center px-2 py-4 items-center border rounded-md gap-8'>
@@ -133,7 +133,7 @@ const Overview = () => {
             </div>
 
             <p className='text-[24px] max-lg:text-lg max-md:text-base max-sm:text-sm font-[600] text-[#000000] font-[Inter] pt-5 text-center'>Beels Ambassador Portal</p>
-            <p className='text-[18px] max-lg:text-base max-md:text-sm max-sm:text-xs font-[400] text-[#000000] font-[Inter] pt-3 text-center'>Welcome to Beels Portal! As a company admin,you have the ability to add new ambassadors to our program.</p>
+            <p className='text-[18px] max-lg:text-base max-md:text-sm max-sm:text-xs font-[400] text-[#000000] font-[Inter] pt-3 text-center px-36'>Welcome to Beels Portal! As a company admin,you have the ability to add new ambassadors to our program.</p>
             <div className='flex justify-center items-center my-5'>
               <button onClick={() => setShowAmbassadorsIcon(!showAmbassadorsIcon)} className='bg-[#082C25] w-1/5 max-lg:w-1/2 max-sm:w-3/4 py-3 flex justify-center items-center rounded-md'>
                 <p className='text-white text-[20px] font-[400] font-[Inter] '>Add Leads</p>
@@ -151,7 +151,7 @@ const Overview = () => {
             </div>
 
             <p className='text-[24px] max-lg:text-lg max-md:text-base max-sm:text-sm font-[600] text-[#000000] font-[Inter] pt-5 text-center px-5'>Beels Ambassador Portal</p>
-            <p className='text-[18px] max-lg:text-base max-md:text-sm max-sm:text-xs  font-[400] text-[#000000] font-[Inter] pt-3 text-center px-5'>Welcome to Beels Portal! As a company admin,you have the ability to add new ambassadors to our program.</p>
+            <p className='text-[18px] max-lg:text-base max-md:text-sm max-sm:text-xs  font-[400] text-[#000000] font-[Inter] pt-3 text-center max-lg:px-24 max-md:px-20 max-sm:px-10'>Welcome to Beels Portal! As a company admin,you have the ability to add new ambassadors to our program.</p>
             <div className='flex justify-center items-center my-5'>
               <button onClick={() => setShowAmbassadorsIcon(!showAmbassadorsIcon)} className='bg-[#082C25] w-1/5 max-lg:w-1/2 max-sm:w-3/4 py-3 flex justify-center items-center rounded-md'>
                 <p className='text-white text-[20px] max-lg:text-base max-md:text-sm max-sm:text-xs font-[400] font-[Inter] '>Add Leads</p>
@@ -167,7 +167,7 @@ const Overview = () => {
               </div>
               <div className='w-1/2  flex flex-col justify-around'>
                 <p className='text-[17px] max-lg:text-sm max-md:text-xs max-sm:text-[10px] font-[500] text-[#667185] font-[Inter]'> Total of Ambassadors </p>
-                <p className='text-[24px] max-lg:text-lg max-md:text-base max-sm:text-sm font-[700] text-[#000000] font-[Inter]'> {userthirddetail?.sub?.length + userseconddetail?.all?.length} </p>
+                <p className='text-[24px] max-lg:text-lg max-md:text-base max-sm:text-sm font-[700] text-[#000000] font-[Inter]'> {userthirddetail?.sub?.length + userseconddetail?.all?.length || 0} </p>
               </div>
             </div>
             <div className='flex w-[30%] max-lg:w-[70%] max-sm:w-3/4 justify-center px-2 py-4 items-center border rounded-md gap-8'>
@@ -189,7 +189,7 @@ const Overview = () => {
               </div>
               <div className='w-1/2  flex flex-col justify-around'>
                 <p className='text-[17px] max-lg:text-sm max-md:text-xs max-sm:text-[10px] font-[500] text-[#667185] font-[Inter]'> Sub Ambassador </p>
-                <p className='text-[24px] max-lg:text-lg max-md:text-base max-sm:text-sm font-[700] text-[#000000] font-[Inter]'> {userthirddetail?.sub?.length } </p>
+                <p className='text-[24px] max-lg:text-lg max-md:text-base max-sm:text-sm font-[700] text-[#000000] font-[Inter]'> {userthirddetail?.sub?.length} </p>
               </div>
             </div>
           </div>
@@ -200,9 +200,11 @@ const Overview = () => {
 
   return (
     <div className='min-h-screen bg-white flex relative'>
-      <div className='fixed top-0 right-0 w-2/5 max-sm:w-[70%] h-full' ref={formRef}>
+      <div className='fixed top-0 right-0 w-2/5 max-sm:left-0 max-lg:w-full h-full' ref={formRef}>
         {showAmbassadorsIcon && <AmbassadorForm close={setShowAmbassadorsIcon} />}
       </div>
+     
+
       <div className='w-1/5 max-lg:hidden'>
         <Sidebar />
       </div>
@@ -218,7 +220,12 @@ const Overview = () => {
           <div className='lg:hidden' onClick={() => setNavbar(!navbar)}>
             <img src={Navbar} />
           </div>
-          <p className='text-[32px] mx-10 max-lg:text-2xl max-md:text-xl max-sm:text-lg font-[600] text-[#000000] font-[Poppins]  '> Admin Dashboard Overview</p>
+          {user?.type == 'Admin' ? (
+            <p className='text-[32px] mx-10 max-lg:text-2xl max-md:text-xl max-sm:text-lg max-xsm:text-sm font-[600] text-[#000000] font-[Poppins]  '> {user?.type} Dashboard </p>
+          ) : (
+            <p className='text-[32px] mx-10 max-lg:text-2xl max-md:text-xl max-sm:text-lg max-xsm:text-sm font-[600] text-[#000000] font-[Poppins]  '> {user?.type} Ambassador Dashboard </p>
+          )}
+
         </div>
 
         {Content()}

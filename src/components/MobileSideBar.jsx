@@ -20,6 +20,7 @@ const MobileSideBar = () => {
     const [thirdActiveLink, setThirdActiveLink] = useState('');
     const [fourthActiveLink, setFourthActiveLink] = useState('')
     const [fifthActiveLink, setFifthActiveLink] = useState('')
+    const profileImageSrc = user?.business?.image || ProfileIcon;
 
     console.log(user?.type)
 
@@ -119,22 +120,22 @@ const MobileSideBar = () => {
     
 
     return (
-        <div className='bg-[#001A04] w-full min-h-screen pt-10 '>
+        <div className='bg-[#001A04] w-full min-h-screen pt-10 lg:hidden'>
             <img src={Logo} className='mx-2' />
 
             <div className='h-10 w-10 rounded-md mt-5  mx-2 '>
-                <img src={Profile} />
+                <img src={profileImageSrc} />
             </div>
             <div className='flex justify-start gap-4 items-center mt-5 px-2 '>
-                <p className='text-[#FFFFFF] text-[16px] max-lg:text-sm max-sm:text-xs font-[700] font-[Inter] '> Mac Roger </p>
+                <p className='text-[#FFFFFF] text-[16px] max-lg:text-sm max-sm:text-xs font-[700] font-[Inter] '> {user?.first_name + '' + user?.last_name} </p>
                 <RiArrowDropDownLine className='text-white' />
             </div>
-            <p className='text-[#FFFFFF] text-[12px]  max-md:text-[10px] font-[400] font-[Inter] mt-5 px-2 '> ADMIN </p>
-            <div className={`flex justify-start gap-4 items-center px-2 my-4 py-2 ${activeLink === 'dashboard' ? 'bg-[#3AB54A]' : ''}`} onClick={handleDashboardClick}>
+            <p className='text-[#FFFFFF] text-[12px]  max-md:text-[10px] font-[400] font-[Inter] mt-5 px-2 '> {user?.type} </p>
+            <div className={`flex justify-start hover:cursor-pointer gap-4 items-center px-2 my-4 py-2 ${activeLink === 'dashboard' ? 'bg-[#3AB54A]' : ''}`} onClick={handleDashboardClick}>
                 <FaHouseDamage className='text-white' />
                 <p className='text-[#FFFFFF] text-[16px] max-lg:text-sm max-sm:text-xs font-[600] font-[Inter] '> Dashboard </p>
             </div>
-            <div className='flex justify-start gap-4 items-center px-2 my-4 py-2'>
+            <div className='flex justify-start hover:cursor-pointer gap-4 items-center px-2 my-4 py-2'>
                 <div className='flex justify-start items-center gap-4'>
                     <img src={TaskIcon} />
                     <p className='text-sm font-[700] text-[#FFFFFF] font-[Rockwell]'> Ambassadors</p>
@@ -145,17 +146,17 @@ const MobileSideBar = () => {
             </div>
             {showAmbassadors && (
                 <div>
-                    <div className={`flex justify-start gap-4 items-center px-3 my-3 py-2 ${secondActiveLink === 'ViewAmbassadors' ? 'bg-[#3AB54A]' : ''}`} onClick={handleViewAmbassadorsClick}>
+                    <div className={`flex hover:cursor-pointer justify-start gap-4 items-center px-3 my-3 py-2 ${secondActiveLink === 'ViewAmbassadors' ? 'bg-[#3AB54A]' : ''}`} onClick={handleViewAmbassadorsClick}>
                         <div className='w-4 h-4 rounded-full border border-[#FFFFFF]'></div>
                         <p className='text-sm font-[700] text-[#FFFFFF] font-[Rockwell]'>View Ambassadors</p>
                     </div>
-                    <div className={`flex justify-start gap-4 items-center px-3 py-2 my-3 ${thirdActiveLink === 'AddAmbassadors' ? 'bg-[#3AB54A]' : ''} `} onClick={() => { navigate('/dashboard/add-ambassador'); setThirdActiveLink("AddAmbassadors") }}>
+                    <div className={`flex hover:cursor-pointer justify-start gap-4 items-center px-3 py-2 my-3 ${thirdActiveLink === 'AddAmbassadors' ? 'bg-[#3AB54A]' : ''} `} onClick={() => { navigate('/dashboard/add-ambassador'); setThirdActiveLink("AddAmbassadors") }}>
                         <div className='w-4 h-4 rounded-full border border-[#FFFFFF]'></div>
                         <p className='text-sm font-[700] text-[#FFFFFF] font-[Rockwell]'>Add Ambassadors</p>
                     </div>
                 </div>
             )}
-            <div className='flex justify-start gap-4 items-center px-2 my-4 py-2'>
+            <div className='flex justify-start hover:cursor-pointer gap-4 items-center px-2 my-4 py-2'>
                 <div className='flex justify-start items-center gap-4'>
                     <img src={TaskIcon} />
                     <p className='text-sm font-[700] text-[#FFFFFF] font-[Rockwell]'> Tasks </p>
@@ -166,17 +167,17 @@ const MobileSideBar = () => {
             </div>
             {tasks && (
                 <div>
-                    <div className={`flex justify-start gap-4 items-center px-3 my-3 py-2 ${fourthActiveLink === 'viewTask' ? 'bg-[#3AB54A]' : ''}`} onClick={handleViewTaskClick}>
+                    <div className={`flex hover:cursor-pointer justify-start gap-4 items-center px-3 my-3 py-2 ${fourthActiveLink === 'viewTask' ? 'bg-[#3AB54A]' : ''}`} onClick={handleViewTaskClick}>
                         <div className='w-4 h-4 rounded-full border border-[#FFFFFF]'></div>
                         <p className='text-sm font-[700] text-[#FFFFFF] font-[Rockwell]'>View all tasks</p>
                     </div>
-                    <div className={`flex justify-start gap-4 items-center px-3 py-2 my-3 ${fifthActiveLink === 'createTask' ? 'bg-[#3AB54A]' : ''}`} onClick={handleCreateTaskClick}>
+                    <div className={`flex hover:cursor-pointer justify-start gap-4 items-center px-3 py-2 my-3 ${fifthActiveLink === 'createTask' ? 'bg-[#3AB54A]' : ''}`} onClick={handleCreateTaskClick}>
                         <div className='w-4 h-4 rounded-full border border-[#FFFFFF]'></div>
                         <p className='text-sm font-[700] text-[#FFFFFF] font-[Rockwell]'>Create Tasks</p>
                     </div>
                 </div>
             )}
-            <div className={`flex justify-start gap-4 items-center px-2 mt-10  py-2 `} onClick={handleLogoutClick}>
+            <div className={`flex hover:cursor-pointer justify-start gap-4 hover:bg-[#3AB54A] items-center px-2 mt-10  py-2 `} onClick={handleLogoutClick}>
                 <img src={LogoutIcon} className='' />
                 <p className='text-[#FFFFFF] text-[16px] max-lg:text-sm max-sm:text-xs font-[600] font-[Inter] '> Logout </p>
             </div>

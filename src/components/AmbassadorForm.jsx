@@ -88,12 +88,14 @@ const AmbassadorForm = ({ close }) => {
     }
 
     return (
-        <div className='pl-10 h-full max-lg:pl-0 bg-white pb-10 max-lg:flex max-lg:flex-col max-lg:justify-center max-lg:items-center'>
-            <div className='flex justify-end px-10 items-center pt-5'>
-                <img src={CancelIcon} className='w-6 max-lg:hidden' onClick={() => close(false)} />
+        <div className='pl-10 h-full max-lg:pl-0 bg-white pb-10 max-lg:flex max-lg:flex-col max-lg:justify-center '>
+            <div className='flex justify-end  px-10 items-center pt-5'>
+                
+                <img src={CancelIcon} className='w-6' onClick={() => close(false)} />
             </div>
-            <p className='text-[20px] pt-1 font-[700] text-[#242731] font-[Poppins] max-lg:text-center'> Lead Ambassador Info </p>
-            <p className='text-[13px] pt-1 w-[70%]  font-[300] text-[#9bb3e0] font-[Roboto] max-lg:text-center'> Fill in the data for the lead ambassador. A email will be sent to their address to onboard them. </p>
+            <p className='text-[20px] pt-1 font-[700]  text-[#242731] font-[Poppins] max-lg:text-center'> Lead Ambassador Info </p>
+            <p className='text-[13px] pt-1 max-lg:px-32 max-md:px-18 max-sm:px-10  font-[300] text-[#9bb3e0] font-[Roboto] max-lg:text-center'> Fill in the data for the lead ambassador. A email will be sent to their address to onboard them. </p>
+            <div className='flex justify-center items-center'>
             <form className='w-[70%] ' onSubmit={handleSubmit}>
                 <div className='border rounded-md p-4 pt-3 mt-3'>
                     <p className='text-[16px] font-[600] text-[#242731] font-[Poppins] max-lg:text-center'> Lead Ambassador Info </p>
@@ -149,6 +151,7 @@ const AmbassadorForm = ({ close }) => {
                         )
                     }
             </form>
+            </div>
             {modal && <Invite modal={modal} setModal={setModal} />}
         </div>
     )

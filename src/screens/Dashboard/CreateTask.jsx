@@ -59,7 +59,12 @@ const createTask = () => {
         console.log(name, description, points)
         console.log('Lead Ambassador Selected:', isLeadAmbassadorSelected);
         console.log('Sub Ambassador Selected:', isSubAmbassadorSelected);
-
+        setName('')
+        setDescription('')
+        setPoints('')
+        setIsLeadAmbassadorSelected(false)
+        setIsSubAmbassadorSelected(false)
+        setLoading(false)
     };
 
     return (

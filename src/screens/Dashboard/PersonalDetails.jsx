@@ -98,7 +98,13 @@ const PersonalDetails = () => {
                         <img src={Navbar} />
                     </div>
 
-                    <p className='text-[26px] max-lg:text-xl max-md:text-lg max-sm:text-base  font-[600] text-[#000000] font-[Poppins] mx-10 my-5'>Viewing Lead Ambassador</p>
+                    {user?.type == 'Admin' ? (
+                        <p className='text-[26px] max-lg:text-xl max-md:text-lg max-sm:text-base  font-[600] text-[#000000] font-[Poppins] mx-10 my-5'>Viewing {user?.type}  </p>
+                    ) : (
+                        <p className='text-[26px] max-lg:text-xl max-md:text-lg max-sm:text-base  font-[600] text-[#000000] font-[Poppins] mx-10 my-5'>Viewing {user?.type} Ambassador </p>
+                    )}
+
+
                 </div>
                 <div className='flex justify-start items-center gap-4 mx-10 max-lg:mx-8 max-md:mx-5 my-5 max-lg:my-4'>
                     <div className='w-17 h-17 rounded-full'>
@@ -111,9 +117,9 @@ const PersonalDetails = () => {
                 </div>
                 <div className='flex justify-start items-center mx-10 max-lg:mx-8 max-md:mx-6 max-sm:mx-4 gap-12 max-lg:gap-10 max-md:gap-8 max-sm:gap-4 border-b border-[#E4E7EC] mt-5'>
                     {['Overview', 'Users', 'Ambassadors', 'SendMessage'].map(section => {
-                
+
                         if ((user?.type !== "Admin" && user?.type !== "Lead") && (section === 'Ambassadors' || section === 'SendMessage')) {
-                       
+
                             return null;
                         }
 

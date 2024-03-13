@@ -89,25 +89,25 @@ const Login = () => {
 
 
 
-      <div className='flex max-lg:flex-col justify-between items-center max-lg:justify-center w-full max-lg:mt-10 max-md:mt-6 max-sm:mt-3'>
+      <div className='flex max-lg:flex-col justify-between items-center max-lg:justify-center w-full max-lg:mt-24 max-md:mt-20 max-sm:mt-16'>
         <img src={Image} className='w-[480px] max-lg:hidden' />
 
-        <div className={`bg-[#082C25] h-full   rounded-2xl w-1/2 max-lg:w-3/4 max-md:w-[80%] max-sm:w-[90%] p-5 px-12 `}>
-          <p className='text-2xl max-lg:text-xl max-md:text-lg max-sm:text-base font-[700] text-white font-[Rockwell] my-4 max-lg:text-center'>Login to Admin Account</p>
+        <div className={`bg-[#082C25] h-full   rounded-2xl w-1/2 max-lg:w-3/4 max-md:w-[80%] max-sm:w-[90%] p-5 px-12 max-lg:px-10 max-md:px-8 max-sm:px-6 `}>
+          <p className='text-2xl max-lg:text-xl max-md:text-lg max-sm:text-base font-[700] text-white font-[Rockwell] my-4 max-lg:text-center'>Login to your Account</p>
           <form onSubmit={handleLogin}>
-            <div className='flex my-4 items-center justify-start gap-2 px-4 py-2 bg-white rounded-lg'>
+            <div className='flex my-4 items-center justify-start gap-2 px-4 max-sm:px-2 py-2 bg-white rounded-lg'>
               <img src={MailIcon} className='' />
-              <input type="text" placeholder='Admin Email' className="input max-lg:w-[100%]" value={email} onChange={(e) => setEmail(e.target.value)} />
+              <input type="text" placeholder='Admin Email' className="input max-lg:w-[100%] flex-1" value={email} onChange={(e) => setEmail(e.target.value)} />
             
             </div>
             {emailError && <p className='text-red-500'>{emailError}</p>}
-            <div className='flex my-4 items-center justify-start gap-2 px-4 py-2 bg-white rounded-lg'>
+            <div className={`flex my-4 ${emailError|| passwordError && 'my-2'}  items-center justify-start gap-2 px-4 max-sm:px-2 py-2 bg-white rounded-lg`}>
               <img src={LockIcon} className='' />
-              <input type="text" placeholder='Password' className="input max-lg:w-[100%]" value={password} onChange={(e) => setPassword(e.target.value)} />
+              <input type="text" placeholder='Password' className="input max-lg:w-[100%] flex-1" value={password} onChange={(e) => setPassword(e.target.value)} />
            
             </div>
             {passwordError && <p className='text-red-500'>{passwordError}</p>}
-            <button className='flex w-full my-4 items-center justify-center gap-2 px-4 py-2 bg-[#3AB54A] rounded-lg' type="submit">
+            <button className={`flex w-full my-4 ${passwordError || emailError && 'my-2'} items-center justify-center gap-2 px-4 py-2 bg-[#3AB54A] rounded-lg`} type="submit">
               {loggingin ? (
                 <div className='loader'></div>
               ) : (
